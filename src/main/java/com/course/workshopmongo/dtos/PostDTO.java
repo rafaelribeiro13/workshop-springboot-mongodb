@@ -2,6 +2,8 @@ package com.course.workshopmongo.dtos;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.course.workshopmongo.domain.Post;
 
@@ -14,6 +16,8 @@ public class PostDTO implements Serializable {
 	private String body;
 	private AuthorDTO author;
 	
+	private List<CommentDTO> comments = new ArrayList<>();
+	
 	public PostDTO() {
 	}
 	
@@ -23,6 +27,7 @@ public class PostDTO implements Serializable {
 		this.title = post.getTitle();
 		this.body = post.getBody();
 		this.author = post.getAuthor();
+		this.comments = post.getComments();
 	}
 
 	public String getId() {
@@ -59,6 +64,10 @@ public class PostDTO implements Serializable {
 	
 	public AuthorDTO getAuthor() {
 		return author;
+	}
+	
+	public List<CommentDTO> getComments() {
+		return comments;
 	}
 	
 }
